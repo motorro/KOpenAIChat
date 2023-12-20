@@ -1,0 +1,21 @@
+[versions]
+agp = "8.2.0"
+kotlin = "1.9.20"
+coroutines = "1.7.3"
+org-jetbrains-kotlin-jvm = "1.9.10"
+
+[libraries]
+coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
+kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
+kotlin-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version = "0.5.0"}
+openai-bom = { module = "com.aallam.openai:openai-client-bom", version = "3.6.2" }
+openai-client = { module = "com.aallam.openai:openai-client" }
+ktor-okhttp = { module="io.ktor:ktor-client-okhttp" }
+
+
+[plugins]
+androidLibrary = { id = "com.android.library", version.ref = "agp" }
+kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+kotlinCocoapods = { id = "org.jetbrains.kotlin.native.cocoapods", version.ref = "kotlin" }
+org-jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "org-jetbrains-kotlin-jvm" }
