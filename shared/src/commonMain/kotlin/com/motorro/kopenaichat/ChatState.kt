@@ -33,4 +33,9 @@ sealed class ChatState {
      * Awaiting answer from User
      */
     data class AwaitingUser(override val verbalMessages: List<VerbalMessage>) : ChatState()
+
+    /**
+     * Chat failed
+     */
+    data class Failed(override val verbalMessages: List<VerbalMessage>) : ChatState()
 }
