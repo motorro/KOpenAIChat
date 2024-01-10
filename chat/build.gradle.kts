@@ -5,7 +5,7 @@ plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.kotlin.dokka)
     id("maven-publish")
-    id("signing")
+    //id("signing")
 }
 
 kotlin {
@@ -119,12 +119,12 @@ publishing {
     }
 }
 
-signing {
-    useInMemoryPgpKeys(signingKey, signingPassword)
-    sign(publishing.publications)
-}
-
-val signingTasks = tasks.withType<Sign>()
-tasks.withType<AbstractPublishToMaven>().configureEach {
-    dependsOn(signingTasks)
-}
+//signing {
+//    useInMemoryPgpKeys(signingKey, signingPassword)
+//    sign(publishing.publications)
+//}
+//
+//val signingTasks = tasks.withType<Sign>()
+//tasks.withType<AbstractPublishToMaven>().configureEach {
+//    dependsOn(signingTasks)
+//}
