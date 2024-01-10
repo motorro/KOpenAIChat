@@ -11,11 +11,11 @@ java {
     sourceCompatibility = JavaVersion.VERSION_17
     targetCompatibility = JavaVersion.VERSION_17
 }
+dependencies {
+    implementation(project(":chat"))
+}
 
 application {
     mainClass.set("com.motorro.kopenaichat.examples.ChatKt")
 }
 
-dependencies {
-    implementation(project(":shared"))
-}

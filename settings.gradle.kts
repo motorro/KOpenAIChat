@@ -15,5 +15,5 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "KOpenAIChat"
-include(":shared")
+include(":chat")
 include(":examples")
