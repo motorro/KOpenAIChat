@@ -75,7 +75,7 @@ suspend fun assistantConversation(
     val messages = openAi.messages(
         threadId = options.threadId,
         limit = options.maxRefetchMessages,
-        order = SortOrder.Descending
+        order = SortOrder.Ascending
     )
 
     for (message in messages) {
