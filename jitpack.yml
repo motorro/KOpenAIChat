@@ -2,3 +2,5 @@ jdk:
   - openjdk17
 before_install:
   - git fetch --tags origin
+install:
+  - ./gradlew publishToMavenLocal -PisSnapshot=true

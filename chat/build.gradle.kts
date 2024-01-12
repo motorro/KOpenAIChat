@@ -5,8 +5,11 @@ plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.kotlin.dokka)
     id("maven-publish")
-    //id("signing")
+    id("signing")
 }
+
+group = rootProject.group
+version = rootProject.version
 
 kotlin {
     jvm {
@@ -119,12 +122,15 @@ publishing {
     }
 }
 
-//signing {
-//    useInMemoryPgpKeys(signingKey, signingPassword)
-//    sign(publishing.publications)
-//}
-//
-//val signingTasks = tasks.withType<Sign>()
-//tasks.withType<AbstractPublishToMaven>().configureEach {
-//    dependsOn(signingTasks)
-//}
+val isSnapshot = rootProject.hasProperty("isSnapshot") && true == rootProject.properties["isSnapshot"]
+
+signing {
+    isRequired = isSnapshot.not()
+    useInMemoryPgpKeys(signingKey, signingPassword)
+    sign(publishing.publications)
+}
+
+val signingTasks = tasks.withType<Sign>()
+tasks.withType<AbstractPublishToMaven>().configureEach {
+    dependsOn(signingTasks)
+}
